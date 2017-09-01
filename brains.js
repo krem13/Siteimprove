@@ -11,9 +11,13 @@ $(document).ready(function(){
 
 	function loadTable() {
 		
+		$.ajaxSetup({
+    			cache: false
+		});
+		
 		$.ajax(
 		{
-			type: "POST",
+			type: "GET",
 			url: service + 'persons',
 			data: "{}",
 			contentType: "application/json; charset=utf-8",
