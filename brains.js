@@ -13,7 +13,7 @@ $(document).ready(function(){
 		
 		$.ajax(
 		{
-			type: "GET",
+			type: "POST",
 			url: service + 'persons',
 			data: "{}",
 			contentType: "application/json; charset=utf-8",
