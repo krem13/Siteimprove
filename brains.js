@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var service = 'http://assignment.siteimprove.com/api/';
+	var service = 'https://assignment.siteimprove.com/api/';
 	var loader = '<div id="loader" class="loader">Loading...</div>';
 	var interval = null;
 	
