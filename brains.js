@@ -1,10 +1,16 @@
 $(document).ready(function(){
 	var service = 'http://assignment.siteimprove.com/api/';
-	var delay = 3000;
-	setTimeout( loadTable, delay );
+	var loader = '<div id="loader" class="loader">Loading...</div>';
+	var interval = null;
 	
+	$('#container').hide();
+	
+	$('#wrapper').append(loader);
+	$('#loader').delay(3000).show();
+	interval = setInterval(loadTable,3000);
+
 	function loadTable() {
-		//setTimeout( "('#loader').hide();", delay );
+		
 		$.ajax(
 		{
 			type: "GET",
@@ -15,21 +21,21 @@ $(document).ready(function(){
 			cache: false,
 			success: function (data) {
 				
-			var trHTML = '';
-					
-			$.each(data, function (i, item) {
-				//console.log(data[Name]);
-				//console.log(data[i].Name);
-				trHTML += '<tr><td>' + data[i].Name + '</td><td>' + data[i].YearOfBirth + '</td><td>' + data[i].NumChildren + '</td><td class="profession">' + data[i].Profession + '</td></tr>';
-			});
-			
-			$('#brains').append(trHTML);
-			
+				var	trHTML = '';
+						
+				$.each(data, function (i, item) {
+					trHTML += '<tr><td>' + data[i].Name + '</td><td>' + data[i].YearOfBirth + '</td><td>' + data[i].NumChildren + '<i class="glyphicon glyphicon-plus"></i></td><td class="profession">' + data[i].Profession + '</td></tr>';
+				});
+				
+				$('#brains').append(trHTML);
+				$('#container').show();
+				$('#loader').hide();
+				clearInterval(interval);
 			},
 			
 			error: function (msg) {
 				alert(msg.responseText);
 			}
 		});
-	}
+	};
 })
