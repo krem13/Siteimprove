@@ -3,6 +3,10 @@ $(document).ready(function(){
 	var loader = '<div id="loader" class="loader">Loading...</div>';
 	var interval = null;
 	
+	$.ajaxSetup({
+    		cache: false
+	});
+	
 	$('#container').hide();
 	
 	$('#wrapper').append(loader);
@@ -10,10 +14,6 @@ $(document).ready(function(){
 	interval = setInterval(loadTable,3000);
 
 	function loadTable() {
-		
-		$.ajaxSetup({
-    			cache: false
-		});
 		
 		$.ajax(
 		{
