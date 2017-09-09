@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	jQuery.support.cors = true;
 	
-	var service = 'http://assignment.siteimprove.com/api/',
+	var service = 'https://assignment.siteimprove.com/api/',
 		loader = '',
 		interval = null;
 	
